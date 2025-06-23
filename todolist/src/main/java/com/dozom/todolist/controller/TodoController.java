@@ -2,11 +2,10 @@ package com.dozom.todolist.controller;
 
 import com.dozom.todolist.model.TodoItem;
 import com.dozom.todolist.repo.TodoRepo;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
@@ -22,12 +21,12 @@ public class TodoController {
     }
 
     @PostMapping
-    public TodoItem save(@Valid @NotNull @RequestBody TodoItem todoItem){
+    public TodoItem save(@Valid @RequestBody TodoItem todoItem){
         return todoRepo.save(todoItem);
     }
 
     @PutMapping
-    public TodoItem update(@Valid @NotNull @RequestBody TodoItem todoItem) {
+    public TodoItem update(@Valid @RequestBody TodoItem todoItem) {
         return todoRepo.save(todoItem);
     }
 
