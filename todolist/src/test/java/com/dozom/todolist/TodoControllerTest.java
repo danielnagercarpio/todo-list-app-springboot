@@ -94,8 +94,7 @@ class TodoControllerTest {
                 .andExpect(jsonPath("$.done").value(false));
     }
     @Test
-    void testSaveEmptyItemResponseOk() throws Exception {
-
+    void testSaveEmptyItemResponseBadRequest() throws Exception {
         mockMvc.perform(post("/todo")
                         .contentType("application/json")
                         .content("{}"))
@@ -103,7 +102,7 @@ class TodoControllerTest {
     }
 
     @Test
-    void testSaveSeveralItemFail() throws Exception {
+    void testSaveSeveralItemBadRequest() throws Exception {
         TodoItem todo = new TodoItem(null, "Estudiar Java", false);
         List<TodoItem> allItems = new ArrayList<>();
         allItems.add(todo);
@@ -119,6 +118,20 @@ class TodoControllerTest {
     }
 
     // TODO: update Tests
+    @Test
+    void testUpdateResponseOkItemUpdated() throws Exception {
+        TodoItem updatedTodo = new TodoItem(1L, "Estudiar Java Avanzado", false);
+
+        Mockito.when(todoRepo.save(Mockito.any(TodoItem.class))).thenReturn(updatedTodo);
+
+        mockMvc.perform(put("/todo/1")
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(updatedTodo)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").doesNotExist())
+                .andExpect(jsonPath("$.title").value("Estudiar Java Avanzado"))
+                .andExpect(jsonPath("$.done").value(false));    }
+
     // TODO: delete Tests
 
 }
