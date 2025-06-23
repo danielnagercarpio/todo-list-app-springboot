@@ -40,11 +40,12 @@ class TodoControllerTest {
 
     @Test
     void testFindAllResponseOkandValidTitle() throws Exception {
-        TodoItem todo = new TodoItem(1L, "Estudiar Java", false);
+        // comment to test workflow
+        TodoItem todo = new TodoItem(1L, "Estudiar Jaava", false);
         Mockito.when(todoRepo.findAll()).thenReturn(Arrays.asList(todo));
         mockMvc.perform(get("/todo"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Estudiar Java"))
+                .andExpect(jsonPath("$[0].title").value("Estudiar Jaava"))
                 .andExpect(jsonPath("$[0].done").value(false));
 
     }
