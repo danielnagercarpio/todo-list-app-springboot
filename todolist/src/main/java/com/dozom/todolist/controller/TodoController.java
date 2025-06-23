@@ -25,8 +25,9 @@ public class TodoController {
         return todoRepo.save(todoItem);
     }
 
-    @PutMapping
-    public TodoItem update(@Valid @RequestBody TodoItem todoItem) {
+    @PutMapping("/{id}")
+    public TodoItem update(@PathVariable Long id, @Valid @RequestBody TodoItem todoItem) {
+        todoItem.setId(id);
         return todoRepo.save(todoItem);
     }
 
