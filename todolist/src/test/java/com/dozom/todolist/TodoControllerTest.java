@@ -12,10 +12,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -41,7 +38,6 @@ class TodoControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    // TODO: findAll Tests
     @Test
     void testFindAllResponseOkandValidTitle() throws Exception {
         TodoItem todo = new TodoItem(1L, "Estudiar Java", false);
@@ -77,7 +73,6 @@ class TodoControllerTest {
                 .andExpect(jsonPath("$[0].title").doesNotExist())
                 .andExpect(jsonPath("$[0].done").doesNotExist());
     }
-    // TODO: save Tests
     @Test
     void testSaveOneItemResponseOk() throws Exception {
         TodoItem todo = new TodoItem(null, "Estudiar Java", false);
@@ -117,11 +112,11 @@ class TodoControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
-    // TODO: update Tests
     @Test
     void testUpdateResponseOkItemUpdated() throws Exception {
         TodoItem updatedTodo = new TodoItem(1L, "Estudiar Java Avanzado", false);
 
+        Mockito.when(todoRepo.findById(1L)).thenReturn(Optional.of(updatedTodo));
         Mockito.when(todoRepo.save(Mockito.any(TodoItem.class))).thenReturn(updatedTodo);
 
         mockMvc.perform(put("/todo/1")
@@ -130,8 +125,38 @@ class TodoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").doesNotExist())
                 .andExpect(jsonPath("$.title").value("Estudiar Java Avanzado"))
-                .andExpect(jsonPath("$.done").value(false));    }
+                .andExpect(jsonPath("$.done").value(false));
+    }
+    @Test
+    void testUpdateResponseOkEmptyItem() throws Exception {
+        TodoItem updatedTodo = new TodoItem(1L, "Estudiar Java Avanzado", false);
 
-    // TODO: delete Tests
+        Mockito.when(todoRepo.findById(Mockito.anyLong())).thenReturn(Optional.empty());
+
+        mockMvc.perform(put("/todo/1")
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(updatedTodo)))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testDeleteOk() throws Exception {
+
+        Mockito.when(todoRepo.existsById(1L)).thenReturn(true);
+
+        mockMvc.perform(delete("/todo/1"))
+                .andExpect(status().isNoContent());
+
+        Mockito.verify(todoRepo).deleteById(1L);
+    }
+    @Test
+    void testDeleteNotFound() throws Exception {
+
+        Mockito.when(todoRepo.existsById(1L)).thenReturn(false);
+
+        mockMvc.perform(delete("/todo/1"))
+                .andExpect(status().isNotFound());
+        Mockito.verify(todoRepo, Mockito.times(0)).deleteById(1L);
+    }
 
 }
