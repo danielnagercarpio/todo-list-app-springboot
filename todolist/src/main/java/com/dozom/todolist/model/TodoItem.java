@@ -1,13 +1,14 @@
 package com.dozom.todolist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class TodoItem {
+    @JsonIgnore
     private Long id;
     @NotBlank
     private String title;
