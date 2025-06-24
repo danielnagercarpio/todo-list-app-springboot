@@ -10,6 +10,7 @@ import { TaskListItemHeaderComponent } from '../task-list-item-header/task-list-
 })
 export class TaskListComponent {
   @Input() wide : boolean = false;
+  @Input() data  : any;
   @HostBinding('class.wide') get isWide() {
     return this.wide;
   }

@@ -20,15 +20,11 @@
   </div>
   <div class="tasks-container">
     <app-task-list-item-header></app-task-list-item-header>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
-    <app-task-list-item></app-task-list-item>
+    @for (item of data; track item.id) {
+    <app-task-list-item
+      [title]="item.title"
+      [done]="item.done"
+    ></app-task-list-item>
+    }
   </div>
 </div>
