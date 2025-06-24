@@ -1,6 +1,9 @@
 <app-header></app-header>
 <main>
-  <app-task-list [wide]="true" [data]="dataReceived"></app-task-list>
-  <h1>Los datos recibidos son: {{ dataReceived | json }}</h1>
+  <app-task-list
+    (refreshRequested)="onRefreshFromHeader()"
+    [wide]="true"
+    [data]="dataReceived"
+  ></app-task-list>
   <router-outlet></router-outlet>
 </main>

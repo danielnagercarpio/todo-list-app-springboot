@@ -16,10 +16,11 @@
 	height: 100%;
 	align-items: center;
 	flex-direction: row;
-    background-color: 	rgb(45, 67, 54);
+    background-color: 	white;
 	padding-left: 100px;
 	box-sizing: border-box;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid rgb(39, 40, 39);
+
 }
 .header-navigation {
 	display: flex;
@@ -30,26 +31,27 @@
 	padding-left: 100px;
 	box-sizing: border-box;
 	gap: 100px;
+
 }
 
 .header-credit {
-	color:  white;
+    color: #046BD2;
   margin-right: 20px;
 }
 .header-link {
-	color:  white;
+	color:  #97ab47;
 	text-decoration: none;
 }
 .header-link:hover{
-	color:  #cdda97;
+		color:  #b1cc44;
 	text-decoration: none;
 }
 .header-logo svg{
-	color:  #cdda97;
+		color:  #a8be52;
 	transition: color 0.3s ease;
 }
 .header-logo:hover svg {
-	color:  #a8be52;
+		color:  #c4df55;
 		animation: spin 0.3s ease-in-out infinite alternate;
 
 }

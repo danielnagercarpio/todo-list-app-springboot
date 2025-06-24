@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
@@ -19,10 +19,21 @@ export class CreateTaskComponent {
   constructor(private todoService : TodoService) {
 
   }
-  ngOnInit() : void{
+
+  refreshData() {
     this.todoService.getTasks().subscribe({
       next: data => this.dataReceived = data,
       error: err => console.error(err)
     });
+  }
+
+  ngOnInit() : void{
+    this.refreshData()
+  }
+  @Output() refresh = new EventEmitter<void>();
+
+  onRefreshFromHeader() {
+      console.log('Recibido desde TaskHeader!');
+    this.refreshData();
   }
 }

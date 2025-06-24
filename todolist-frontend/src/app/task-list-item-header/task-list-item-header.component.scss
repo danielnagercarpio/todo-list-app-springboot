@@ -3,10 +3,8 @@
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr; /* Ajusta según tus columnas */
     gap: 10px;
     align-items: center;
-
     width: 1000px;
     flex-direction: row;
-    background-color: 	#cedc93;
     box-sizing: border-box;
     padding-left: 50px;
     padding-right: 50px;
@@ -14,6 +12,8 @@
     padding-bottom: 10px;
     height: 50px;
     border-bottom: 1px solid grey;
+    background-color: 	rgb(205, 224, 239);
     font-family: 'RobotoVariable';
     font-weight: bolder;
+    color: black;
 }
