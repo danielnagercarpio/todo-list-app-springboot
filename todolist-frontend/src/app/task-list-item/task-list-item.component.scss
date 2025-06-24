@@ -1,0 +1,13 @@
+.task-list-item {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
+    gap: 100px;
+    height: 50px;
+    border: 2px solid grey;
+    align-items: center;
+}
