@@ -3,10 +3,12 @@ import { TodoService } from '../todo.service';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { TaskListComponent } from '../task-list/task-list.component';
+import { JsonPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-create-task',
-  imports: [RouterOutlet, HeaderComponent, TaskListComponent],
+  imports: [RouterOutlet, HeaderComponent, TaskListComponent, JsonPipe],
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.scss'
 })
