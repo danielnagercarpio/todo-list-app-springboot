@@ -1,14 +1,19 @@
 .task-list-item {
-    display: flex;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr; /* Ajusta según tus columnas */
+    gap: 10px;
+    align-items: center;
+
+    width: 1000px;
     flex-direction: row;
-    background-color: white;
+    background-color: 	#cedc93;
     box-sizing: border-box;
     padding-left: 50px;
     padding-right: 50px;
-    gap: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     height: 50px;
-    border: 2px solid grey;
-    align-items: center;
-    font-weight: bold;
+    border-bottom: 1px solid grey;
+    font-family: 'RobotoVariable';
+    font-weight: bolder;
 }
