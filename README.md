@@ -15,3 +15,5 @@ To run project when you had cloned it into your local machine, you have to do tw
 ### Image of application
 - First Version of todo list App (frontend not working yet)
   ![First Version Preview](todolist-frontend/src/assets/app-evolution/first-screen-version.png)
+- Second Version of todo list App (frontend not working yet)
+  ![Second Version Preview](todolist-frontend/src/assets/app-evolution/first-screen-second-version.png)
