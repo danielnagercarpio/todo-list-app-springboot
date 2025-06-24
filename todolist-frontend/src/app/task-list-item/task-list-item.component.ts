@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task-list-item',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './task-list-item.component.scss'
 })
 export class TaskListItemComponent {
-
+  @Input() title : string = "";
+  @Input() done : string = "";
 }

@@ -25,6 +25,4 @@ export class CreateTaskComponent {
       error: err => console.error(err)
     });
   }
-
-
 }
