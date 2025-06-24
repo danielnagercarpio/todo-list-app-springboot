@@ -4,7 +4,7 @@
     padding-bottom: 50px;
 }
 .task-list-component {
-    background-color: 	#74c4c4;
+    background-color: 	#81a169;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     width: 100%;
     display: block;
     padding-top: 20px;
-    padding-left: 10%;
+    padding-left: 200px;
     font-style: bold;
     padding-bottom: 20px;
 }
@@ -25,9 +25,29 @@ p, main {
   font-family: 'RobotoVariable';
   color: black;
 }
+.grid-title p {
+    color: black;
+}
+
 :host(.wide) {
   width: 80vw;
   padding-top: 50px;
   display: block;
   margin: 0 auto;
+}
+.tasks-header {
+    font-family: 'RobotoVariable';
+    font-size: 2em;
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.add-task-button {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
