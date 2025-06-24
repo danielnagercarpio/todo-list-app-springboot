@@ -1,0 +1,33 @@
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+.task-list-component {
+    background-color: 	#74c4c4;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+.grid-title {
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+    padding-left: 10%;
+    font-style: bold;
+    padding-bottom: 20px;
+}
+p, main {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  font-family: 'RobotoVariable';
+  color: black;
+}
+:host(.wide) {
+  width: 80vw;
+  padding-top: 50px;
+  display: block;
+  margin: 0 auto;
+}
