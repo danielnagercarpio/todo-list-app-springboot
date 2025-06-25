@@ -12,13 +12,13 @@
       />
     </svg>
   </div>
-  <div class="task-list-item-title">
+  <div title="{{ title }}" class="task-list-item-title">
     <span>{{ title }}</span>
   </div>
   <div class="task-list-item-time">
     <span> {{ done }}</span>
   </div>
-  <div class="task-list-item-edit">
+  <div class="task-list-item-edit" (click)="updateData(id)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"

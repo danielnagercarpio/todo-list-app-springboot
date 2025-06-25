@@ -28,3 +28,10 @@ background-color: white;
     display: flex;
     padding-left: 20px;
 }
+
+.task-list-item-title {
+  max-width: 50ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

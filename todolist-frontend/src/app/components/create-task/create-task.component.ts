@@ -1,14 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../../core/todo.service';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { TaskListComponent } from '../task-list/task-list.component';
 import { JsonPipe } from '@angular/common';
+import { ModalEditTaskComponent } from "../modal-edit-task/modal-edit-task.component";
 
 
 @Component({
   selector: 'app-create-task',
-  imports: [RouterOutlet, HeaderComponent, TaskListComponent, JsonPipe],
+  imports: [RouterOutlet, HeaderComponent, TaskListComponent, ModalEditTaskComponent, JsonPipe],
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.scss'
 })

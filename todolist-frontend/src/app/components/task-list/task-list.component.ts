@@ -14,7 +14,6 @@ export class TaskListComponent {
   @Input() data  : any;
 
   onRefreshClick() {
-    console.log("entra y bien");
     this.refreshRequested.emit();
   }
 

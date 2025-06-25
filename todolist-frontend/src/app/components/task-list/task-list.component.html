@@ -17,7 +17,7 @@
         />
       </svg>
     </div>
-    <div class="add-task-button" (click)="onRefreshClick()">
+    <div class="refresh-tasks-button" (click)="onRefreshClick()">
       <p>Refresh Data</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +36,7 @@
     <app-task-list-item-header></app-task-list-item-header>
     @for (item of data; track item.title) {
     <app-task-list-item
+      [id]="item.id"
       [title]="item.title"
       [done]="item.done"
     ></app-task-list-item>
