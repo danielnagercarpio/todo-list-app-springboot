@@ -8,15 +8,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './modal-edit-task.component.scss'
 })
 export class ModalEditTaskComponent {
+  modalOpen : boolean = true;
+
   task = {
     id: 0,              // o el ID real si estás editando una tarea existente
     title: '',
     completed: false
   };
-    closeModal() {
+  
+  closeModal() {
     console.log("Closing Modal");
+    this.modalOpen = !this.modalOpen;
   }
   saveTask() {
     console.log("Saving Modal");
+    this.modalOpen = !this.modalOpen;
   }
 }

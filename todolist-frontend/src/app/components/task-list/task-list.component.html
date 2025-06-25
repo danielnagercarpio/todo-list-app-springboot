@@ -3,7 +3,10 @@
     <div class="grid-title">
       <p>Task List</p>
     </div>
-    <div class="add-task-button">
+    <div class="add-task-button" (click)="showCreateTaskModal()">
+      <app-modal-create-task
+        *ngIf="isCreateTaskVisible"
+      ></app-modal-create-task>
       <p>Add Task</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
