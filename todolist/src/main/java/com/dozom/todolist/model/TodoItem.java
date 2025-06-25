@@ -28,7 +28,6 @@ public class TodoItem {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -36,7 +35,6 @@ public class TodoItem {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -44,7 +42,6 @@ public class TodoItem {
     public boolean isDone() {
         return done;
     }
-
     public void setDone(boolean done) {
         this.done = done;
     }
