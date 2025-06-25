@@ -9,7 +9,7 @@ import { ModalEditTaskComponent } from "../modal-edit-task/modal-edit-task.compo
 
 @Component({
   selector: 'app-create-task',
-  imports: [RouterOutlet, HeaderComponent, TaskListComponent, ModalEditTaskComponent, JsonPipe],
+  imports: [RouterOutlet, HeaderComponent, TaskListComponent, ModalEditTaskComponent],
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.scss'
 })
