@@ -1,4 +1,4 @@
-import { Component, Input, HostBinding } from '@angular/core';
+import { Component, Input, HostBinding, Output, EventEmitter } from '@angular/core';
 import { TaskListItemComponent } from '../task-list-item/task-list-item.component';
 import { TaskListItemHeaderComponent } from '../task-list-item-header/task-list-item-header.component';
 
@@ -9,8 +9,14 @@ import { TaskListItemHeaderComponent } from '../task-list-item-header/task-list-
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent {
+  @Output() refreshRequested = new EventEmitter<void>();
   @Input() wide : boolean = false;
   @Input() data  : any;
+
+  onRefreshClick() {
+    this.refreshRequested.emit();
+  }
+
   @HostBinding('class.wide') get isWide() {
     return this.wide;
   }

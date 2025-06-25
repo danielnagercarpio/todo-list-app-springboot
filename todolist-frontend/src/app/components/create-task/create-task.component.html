@@ -1,0 +1,10 @@
+<app-header></app-header>
+<main>
+  <app-task-list
+    (refreshRequested)="onRefreshFromHeader()"
+    [wide]="true"
+    [data]="dataReceived"
+  ></app-task-list>
+  <app-modal-edit-task></app-modal-edit-task>
+  <router-outlet></router-outlet>
+</main>

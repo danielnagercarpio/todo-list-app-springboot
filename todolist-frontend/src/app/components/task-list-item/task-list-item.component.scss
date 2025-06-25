@@ -6,8 +6,7 @@
     align-items: center;
     width: 1000px;
     flex-direction: row;
-    background-color: 	#dfe8b8;
-
+background-color: white;
     box-sizing: border-box;
     padding-left: 50px;
     padding-right: 50px;
@@ -28,4 +27,11 @@
 .task-list-item-delete {
     display: flex;
     padding-left: 20px;
+}
+
+.task-list-item-title {
+  max-width: 50ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class TodoItem {
-    @JsonIgnore
     private Long id;
     @NotBlank
     private String title;
