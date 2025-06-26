@@ -5,6 +5,7 @@
     </div>
     <div class="add-task-button" (click)="showCreateTaskModal()">
       <app-modal-create-task
+        (notify)="handleNotify($event)"
         *ngIf="isCreateTaskVisible"
       ></app-modal-create-task>
       <p>Add Task</p>

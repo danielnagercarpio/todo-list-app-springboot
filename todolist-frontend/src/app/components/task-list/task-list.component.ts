@@ -19,6 +19,11 @@ export class TaskListComponent {
   showCreateTaskModal() {
     this.isCreateTaskVisible = !this.isCreateTaskVisible;
   }
+  handleNotify(message : string) {
+    this.isCreateTaskVisible = !this.isCreateTaskVisible;    
+    this.refreshRequested.emit();
+    console.log(message);
+  }
   onRefreshClick() {
     this.refreshRequested.emit();
   }
