@@ -21,5 +21,9 @@ export class TodoService {
     const url = `${this.apiUrl}/todo/${id}`;
     return this.http.put(url, taskdata);
   }
+  saveTask(taskdata : Task) : Observable<any> {
+    const url = `${this.apiUrl}/todo`;
+    return this.http.post(url, taskdata);
+  }
 
 }

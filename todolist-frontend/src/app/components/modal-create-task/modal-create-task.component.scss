@@ -7,13 +7,15 @@
   font-family: 'RobotoVariable';
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.65);   // background del modal
   visibility: hidden;
   &.modal-open {
     visibility: visible;
-  	backface-visibility: visible;  
     opacity: 1;
     z-index: 1;
+  }
+  label {
+    font-size: 18px;
   }
   
   .modal-inner {
@@ -28,18 +30,13 @@
       background-color: #f0f5fa;
       max-width: 35em;
       padding: 1em 1.5em;
+
       position: relative;
       margin: 2em;
+
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
       
-      .modal-close-icon {
-        position: absolute;
-        right: 1.5em;
-      }      
-      
       .modal-content-inner {
-        padding-right: 2em;
-        
         h1, h2, h3, h4, h5, h6 {
           margin-bottom: 0.25em;
         }
@@ -49,7 +46,7 @@
         }
       }
       
-      .modal-buttons-seperator {
+      .modal-buttons-separator {
         margin: 1.5em 0;
         margin-top: 0;
       }
@@ -72,9 +69,6 @@
   }
 }
 
-.demo-container {
-  text-align: center;
-}
 .modal-content-inner{
     display: flex;
     flex-direction: column;
@@ -93,6 +87,7 @@
     background-color: rgb(205, 224, 239);
     display: flex;
     font-weight: bold;
+    font-size: 24px;
     padding: 10px;
     justify-content: center;    
     margin-bottom: 100px;
@@ -113,5 +108,7 @@
     background-color: transparent;
 }
 .button {
-    margin: 10px;
+    font-size: 20px;
+      
+  margin: 10px;
 }

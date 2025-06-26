@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './modal-edit-task.component.scss'
 })
 export class ModalEditTaskComponent {
-  modalOpen : boolean = true;
+  modalOpen : boolean = false;
 
   task = {
     id: 0,              // o el ID real si estás editando una tarea existente
