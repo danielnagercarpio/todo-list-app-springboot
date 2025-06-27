@@ -1,14 +1,16 @@
 <div class="task-list-component">
   <div class="tasks-header">
     <div class="grid-title">
-      <p>Task List</p>
+      <p>Listado de tareas</p>
     </div>
     <div class="add-task-button" (click)="showCreateTaskModal()">
-      <app-modal-create-task
-        (notify)="handleNotify($event)"
-        *ngIf="isCreateTaskVisible"
-      ></app-modal-create-task>
-      <p>Add Task</p>
+      <ng-container *ngIf="isCreateTaskVisible">
+        <app-modal-create-task
+          (notify)="handleNotify($event)"
+        ></app-modal-create-task>
+      </ng-container>
+
+      <p>Añadir tarea</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="28px"
@@ -22,7 +24,7 @@
       </svg>
     </div>
     <div class="refresh-tasks-button" (click)="onRefreshClick()">
-      <p>Refresh Data</p>
+      <p>Actualizar datos</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
@@ -43,6 +45,8 @@
       [id]="item.id"
       [title]="item.title"
       [done]="item.done"
+      (onUpdateFromList)="showEditModal($event)"
+      (deleteEvent)="onRefreshClick()"
     ></app-task-list-item>
     }
   </div>

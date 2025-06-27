@@ -12,6 +12,8 @@ import { NgIf } from '@angular/common';
 })
 export class TaskListComponent {
   @Output() refreshRequested = new EventEmitter<void>();
+  @Output() updateRequested = new EventEmitter<string>();
+
   @Input() wide : boolean = false;
   @Input() data  : any;
   isCreateTaskVisible : boolean = false;
@@ -28,6 +30,9 @@ export class TaskListComponent {
     this.refreshRequested.emit();
   }
 
+  showEditModal(valor : string) {
+    this.updateRequested.emit(valor);
+  }
   @HostBinding('class.wide') get isWide() {
     return this.wide;
   }

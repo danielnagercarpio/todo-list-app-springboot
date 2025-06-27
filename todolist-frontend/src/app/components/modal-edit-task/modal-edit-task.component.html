@@ -1,9 +1,8 @@
-<div class="modal" [class.modal-open]="modalOpen">
-  <div class="modal-inner">
+<div class="modal modal-open">
+  <div class="modal-inner" (click)="$event.stopPropagation()">
     <div class="modal-content">
       <div class="modal-content-inner">
         <div class="modal-title">Editar la tarea</div>
-
         <div class="modal-field">
           <label for="task-title">Título de la tarea:</label>
           <input
@@ -15,17 +14,36 @@
         </div>
         <div class="modal-field">
           <label for="task-completed"> Tarea completada:</label>
-          <select name="task-completed" id="">
-            <option value="true">Si</option>
-            <option value="false">No</option>
+          <select
+            name="task-completed"
+            id="task-completed"
+            [(ngModel)]="task.done"
+          >
+            <option [ngValue]="true">Si</option>
+            <option [ngValue]="false">No</option>
           </select>
         </div>
       </div>
 
       <hr class="modal-buttons-seperator" />
       <div class="modal-buttons">
-        <div class="button close-modal" (click)="closeModal()">Cancelar</div>
-        <div class="button button-primary" (click)="saveTask()">Guardar</div>
+        <div
+          class="button close-modal"
+          tabindex="0"
+          (click)="closeModal()"
+          (keydown.enter)="closeModal()"
+        >
+          Cancelar
+        </div>
+        <div
+          class="button button-primary"
+          id="edit_save"
+          tabindex="0"
+          (click)="saveTask()"
+          (keydown.enter)="saveTask()"
+        >
+          Guardar
+        </div>
       </div>
     </div>
   </div>

@@ -19,11 +19,16 @@ export class TodoService {
   }
   editTask(id : number, taskdata : Task) : Observable<any> {
     const url = `${this.apiUrl}/todo/${id}`;
+    console.log("Por aqui pasa");
     return this.http.put(url, taskdata);
   }
   saveTask(taskdata : Task) : Observable<any> {
     const url = `${this.apiUrl}/todo`;
     return this.http.post(url, taskdata);
+  }
+  deleteTask(id : number) : Observable<any> {
+    const url = `${this.apiUrl}/todo/${id}`;
+    return this.http.delete(url);
   }
 
 }

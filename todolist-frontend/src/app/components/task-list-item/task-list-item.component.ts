@@ -1,35 +1,39 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoService } from '../../core/todo.service';
-import { Task } from '../../models/task.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-task-list-item',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './task-list-item.component.html',
   styleUrl: './task-list-item.component.scss'
 })
+
 export class TaskListItemComponent {
-  @Input() id : string = "";
+  @Input() id : number = 0;
   @Input() title : string = "";
-  @Input() done : string = "";
+  @Input() done : boolean = false;
+  @Output() onUpdateFromList : EventEmitter<string> = new EventEmitter<string>;
+  @Output() deleteEvent : EventEmitter<string> = new EventEmitter<string>;
 
   constructor(private todoService : TodoService) {
 
   }
-  updateData (id: string) {
-    const taskData = {
-      id: Number(id),
-      title: this.title+"sasasas",
-      done: Boolean(this.done)
-    };
-    this.todoService.editTask(Number(id), taskData).subscribe(
-      response => {
-        console.log("OK");
+
+  updateClicked() {
+    this.onUpdateFromList.emit(this.id+","+this.title+","+this.done);
+    console.log("clicado");
+  }
+
+  deleteTaskRequest() {
+    this.todoService.deleteTask(this.id).subscribe({
+      next: () => {
+        console.log("Delete OK")
+        this.deleteEvent.emit("");
       },
-      error => {
-        console.error("Error")
+      error: () => {
+        console.log("Error on delete")
       }
-    )
+    });    
   }
 }
