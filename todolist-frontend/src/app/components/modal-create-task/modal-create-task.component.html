@@ -2,10 +2,10 @@
   <div class="modal-inner" (click)="$event.stopPropagation()">
     <div class="modal-content">
       <div class="modal-content-inner">
-        <div class="modal-title">Crear la tarea</div>
+        <div class="modal-title">Añadir tarea</div>
 
         <div class="modal-field">
-          <label for="task-title">Título de la tarea:</label>
+          <label for="task-title">Tarea a realizar:</label>
           <input
             type="text"
             id="task-title"
@@ -14,10 +14,10 @@
           />
         </div>
         <div class="modal-field">
-          <label for="task-completed"> Tarea completada:</label>
+          <label for="task-completed">Estado de la tarea:</label>
           <select name="task-completed" [(ngModel)]="task.done" id="">
-            <option [ngValue]="true">Si</option>
-            <option [ngValue]="false">No</option>
+            <option [ngValue]="true">Completada</option>
+            <option [ngValue]="false">Por hacer</option>
           </select>
         </div>
       </div>

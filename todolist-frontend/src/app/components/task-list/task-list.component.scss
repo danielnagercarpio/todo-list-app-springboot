@@ -40,12 +40,11 @@ p, main {
     font-family: 'RobotoVariable';
     font-size: 2em;
     width: 1000px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr;
+    align-items: left;
 }
 .add-task-button {
-    width: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -54,7 +53,6 @@ p, main {
 
 }
 .refresh-tasks-button {
-    width: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: center;

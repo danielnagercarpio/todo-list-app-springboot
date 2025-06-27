@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TodoService } from '../../core/todo.service';
 
 @Component({
   selector: 'app-modal-edit-task',
@@ -7,21 +8,35 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './modal-edit-task.component.html',
   styleUrl: './modal-edit-task.component.scss'
 })
-export class ModalEditTaskComponent {
-  modalOpen : boolean = false;
 
-  task = {
-    id: 0,              // o el ID real si estás editando una tarea existente
+export class ModalEditTaskComponent {
+  @Input() task = {
+    id: 0,
     title: '',
-    completed: false
+    done: false
   };
+
+  @Output() refreshRequested = new EventEmitter<string>;
+  @Output() closeModalEvent = new EventEmitter<string>;
   
-  closeModal() {
-    console.log("Closing Modal");
-    this.modalOpen = !this.modalOpen;
+  constructor(private todoService : TodoService) {
+
   }
+
+  closeModal() {
+    this.closeModalEvent.emit();
+  }
+
   saveTask() {
-    console.log("Saving Modal");
-    this.modalOpen = !this.modalOpen;
+    this.todoService.editTask(this.task.id, this.task).subscribe({
+      next: () => {
+        console.log("The update has been completed successfully");
+        this.closeModal();
+        this.refreshRequested.emit();
+      },
+      error: () => {
+        console.error("There was an error")
+      }
+    })
   }
 }
