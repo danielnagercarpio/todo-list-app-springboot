@@ -20,6 +20,17 @@ export class TaskListItemComponent {
 
   }
 
+  onKeyDown(event : KeyboardEvent) {
+    const key = event.key.toLowerCase();
+    if (key === 'e') {
+      (event.target as HTMLElement).blur();
+      this.updateClicked();
+    }
+    if (key === 'd') {
+      (event.target as HTMLElement).blur();
+      this.deleteTaskRequest();
+    }
+  }
   updateClicked() {
     this.onUpdateFromList.emit(this.id+","+this.title+","+this.done);
     console.log("clicado");

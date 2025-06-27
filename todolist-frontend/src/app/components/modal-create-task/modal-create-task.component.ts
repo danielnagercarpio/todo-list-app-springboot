@@ -41,4 +41,12 @@ export class ModalCreateTaskComponent {
     });
   }
 
+  onKeyDown(event : KeyboardEvent) {
+    const key = event.key.toLowerCase();
+    if (key === 'enter') {
+      (event.target as HTMLElement).click();
+      this.notifyParent();
+    }
+  }
+
 }

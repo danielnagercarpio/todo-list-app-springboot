@@ -3,9 +3,8 @@
     <div class="modal-content">
       <div class="modal-content-inner">
         <div class="modal-title">Añadir tarea</div>
-
         <div class="modal-field">
-          <label for="task-title">Tarea a realizar:</label>
+          <label for="task-title">Título de la tarea:</label>
           <input
             type="text"
             id="task-title"
@@ -14,18 +13,37 @@
           />
         </div>
         <div class="modal-field">
-          <label for="task-completed">Estado de la tarea:</label>
-          <select name="task-completed" [(ngModel)]="task.done" id="">
-            <option [ngValue]="true">Completada</option>
-            <option [ngValue]="false">Por hacer</option>
+          <label for="task-completed"> Tarea completada:</label>
+          <select
+            name="task-completed"
+            id="task-completed"
+            [(ngModel)]="task.done"
+          >
+            <option [ngValue]="true">Si</option>
+            <option [ngValue]="false">No</option>
           </select>
         </div>
       </div>
 
       <hr class="modal-buttons-separator" />
       <div class="modal-buttons">
-        <div class="button close-modal" (click)="closeModal()">Cancelar</div>
-        <div class="button button-primary" (click)="saveTask()">Guardar</div>
+        <div
+          class="button close-modal"
+          tabindex="0"
+          (click)="closeModal()"
+          (keydown)="onKeyDown($event)"
+        >
+          Cancelar
+        </div>
+        <div
+          class="button button-primary"
+          id="edit_save"
+          tabindex="0"
+          (click)="saveTask()"
+          (keydown)="onKeyDown($event)"
+        >
+          Guardar
+        </div>
       </div>
     </div>
   </div>

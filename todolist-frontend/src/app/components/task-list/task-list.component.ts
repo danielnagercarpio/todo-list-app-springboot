@@ -17,9 +17,17 @@ export class TaskListComponent {
   @Input() wide : boolean = false;
   @Input() data  : any;
   isCreateTaskVisible : boolean = false;
-  
+
+//  key === "a"
+  onKeyDown(event : KeyboardEvent) {
+    const key = event.key.toLowerCase()
+    if (key === "enter") {
+      this.showCreateTaskModal();
+    }
+  }
   showCreateTaskModal() {
     this.isCreateTaskVisible = !this.isCreateTaskVisible;
+    this.refreshRequested.emit();
   }
   handleNotify(message : string) {
     this.isCreateTaskVisible = !this.isCreateTaskVisible;    

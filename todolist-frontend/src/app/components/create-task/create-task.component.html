@@ -1,18 +1,20 @@
-<app-header></app-header>
-<main>
-  <app-task-list
-    (refreshRequested)="onRefreshFromHeader()"
-    (updateRequested)="onUpdateFromList($event)"
-    [wide]="true"
-    [data]="dataReceived"
-  ></app-task-list>
-  <ng-container *ngIf="isEditModalVisible">
-    <app-modal-edit-task
-      [task]="editInputs"
+<div>
+  <app-header></app-header>
+  <main>
+    <app-task-list
       (refreshRequested)="onRefreshFromHeader()"
-      (closeModalEvent)="invertModal()"
-      (deleteEvent)="onRefreshFromHeader()"
-    ></app-modal-edit-task>
-  </ng-container>
-  <router-outlet></router-outlet>
-</main>
+      (updateRequested)="onUpdateFromList($event)"
+      [wide]="true"
+      [data]="dataReceived"
+    ></app-task-list>
+    <ng-container *ngIf="isEditModalVisible">
+      <app-modal-edit-task
+        [task]="editInputs"
+        (refreshRequested)="onRefreshFromHeader()"
+        (closeModalEvent)="invertModal()"
+        (deleteEvent)="onRefreshFromHeader()"
+      ></app-modal-edit-task>
+    </ng-container>
+    <router-outlet></router-outlet>
+  </main>
+</div>
