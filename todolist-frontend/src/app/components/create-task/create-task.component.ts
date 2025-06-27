@@ -29,7 +29,12 @@ export class CreateTaskComponent {
       error: err => console.error(err)
     });
   }
-
+  onKeyDown(event : KeyboardEvent) {
+    const key = event.key.toLowerCase()
+    if (key === 'a') {
+      this.isEditModalVisible = !this.isEditModalVisible;
+    }
+  }
   ngOnInit() : void{
     this.refreshData()
   }

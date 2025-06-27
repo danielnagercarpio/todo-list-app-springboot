@@ -8,9 +8,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;    
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(72, 72, 72, 0.52); 
-box-shadow: 5px 5px 15px 5px rgba(72, 72, 72, 0.52);
+    -webkit-box-shadow: 5px 5px 15px 5px #dcdde1; 
+box-shadow: 5px 5px 15px 5px #dcdde1;
 
+}
+.task-list-component:focus {
+  outline: 2px solid #3b82f6;
+  border-radius: 4px;
 }
 .grid-title {
     width: 100%;
@@ -24,7 +28,7 @@ p, main {
   padding: 0;
   font-size: 1rem;
   font-family: 'RobotoVariable';
-  color: black;
+    color: #2c3e50;
 }
 .grid-title p {
     font-weight: bolder;
@@ -46,6 +50,8 @@ p, main {
 }
 .add-task-button {
     display: flex;
+    margin-top: 10px;
+    height: 30px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -54,6 +60,9 @@ p, main {
 }
 .refresh-tasks-button {
     display: flex;
+    margin-top: 10px;
+    height: 30px;
+
     flex-direction: row;
     justify-content: center;
     align-items: center;

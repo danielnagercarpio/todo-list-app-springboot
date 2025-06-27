@@ -3,7 +3,12 @@
     <div class="grid-title">
       <p>Listado de tareas</p>
     </div>
-    <div class="add-task-button" (click)="showCreateTaskModal()">
+    <div
+      class="add-task-button"
+      tabindex="0"
+      (keydown)="onKeyDown($event)"
+      (click)="showCreateTaskModal()"
+    >
       <ng-container *ngIf="isCreateTaskVisible">
         <app-modal-create-task
           (notify)="handleNotify($event)"
@@ -23,7 +28,12 @@
         />
       </svg>
     </div>
-    <div class="refresh-tasks-button" (click)="onRefreshClick()">
+    <div
+      class="refresh-tasks-button"
+      tabindex="0"
+      (click)="onRefreshClick()"
+      (keydown.enter)="onRefreshClick()"
+    >
       <p>Actualizar datos</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"

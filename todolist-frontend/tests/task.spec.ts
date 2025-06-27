@@ -121,7 +121,6 @@ test('should save the item and show it in grid when task is edited', async ({ pa
     await expect(page.locator('.modal-open')).toBeVisible();
     await page.fill('#task-title','');
     await page.keyboard.type('Edited Task Working');
-
     await page.selectOption('select#task-completed', { index: 0 });
 
     await expect(page.locator('#edit_save')).toBeVisible();

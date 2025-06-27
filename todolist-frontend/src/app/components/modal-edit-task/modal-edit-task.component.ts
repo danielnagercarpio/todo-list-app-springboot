@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TodoService } from '../../core/todo.service';
 
@@ -18,11 +18,16 @@ export class ModalEditTaskComponent {
 
   @Output() refreshRequested = new EventEmitter<string>;
   @Output() closeModalEvent = new EventEmitter<string>;
+  @ViewChild('focusTitle') campoInput!: ElementRef<HTMLInputElement>;
   
   constructor(private todoService : TodoService) {
 
   }
 
+  ngAfterViewInit() {
+    this.campoInput.nativeElement.focus();
+  }
+  
   closeModal() {
     this.closeModalEvent.emit();
   }

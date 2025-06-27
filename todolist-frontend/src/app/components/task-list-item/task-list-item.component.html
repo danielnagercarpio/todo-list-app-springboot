@@ -1,5 +1,8 @@
-<div class="task-list-item">
-  <div class="task-list-item-completed">
+<div class="task-list-item" tabindex="0" (keydown)="onKeyDown($event)">
+  <div
+    class="task-list-item-completed"
+    [attr.title]="done ? 'Tarea completada' : 'Tarea por hacer'"
+  >
     @if (done) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +37,11 @@
   <!--  <div class="task-list-item-time">
     <span> {{ done }}</span>
   </div>-->
-  <div class="task-list-item-edit" (click)="updateClicked()">
+  <div
+    class="task-list-item-edit"
+    (click)="updateClicked()"
+    title="Editar tarea"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
@@ -47,7 +54,12 @@
       />
     </svg>
   </div>
-  <div class="task-list-item-delete" (click)="deleteTaskRequest()">
+  <div
+    class="task-list-item-delete"
+    (click)="deleteTaskRequest()"
+    (keydown)="onKeyDown($event)"
+    title="Eliminar tarea"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
