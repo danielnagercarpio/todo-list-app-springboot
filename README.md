@@ -32,4 +32,4 @@ To run project when you had cloned it into your local machine, you have to do tw
 ## Example of run
 
 Save task example
-![Save task demo](https://github.com/danielnagercarpio/todo-list-app-springboot/tree/main/todolist-frontend/test-results/task-add-task-ok-should-sa-3b802-when-save-button-is-clicked/output.gif)
+![Save task demo](https://github.com/danielnagercarpio/todo-list-app-springboot/blob/main/todolist-frontend/test-results/task-add-task-ok-should-sa-3b802-when-save-button-is-clicked/output.gif)
