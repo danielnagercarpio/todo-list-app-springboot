@@ -32,7 +32,4 @@ To run project when you had cloned it into your local machine, you have to do tw
 ## Example of run
 
 Save task example
-<video width="600" controls>
-
-  <source src="http://www.reservacafe.com/wp-content/uploads/2025/06/output.mp4" type="video/mp4" />
-</video>
+![Save task demo](http://www.reservacafe.com/wp-content/uploads/2025/06/output.gif)
